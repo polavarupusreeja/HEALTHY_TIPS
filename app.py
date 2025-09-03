@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 app.secret_key = "secret123"
-
 # Dummy users
 USERS = {"admin": "1234", "sreeja": "1234", "varshitha": "1234"}
 
