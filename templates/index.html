@@ -3,128 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Healthy Tips</title>
+  <title>Health Tips - Home</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: url(" https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M=") no-repeat center center fixed;
-      background-size: cover;
-      height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://img.freepik.com/free-photo/flat-lay-arrangement-vegetables-copy-space_23-2148854056.jpg') no-repeat center center/cover;
+      color: #333;
+      line-height: 1.6;
     }
-
-    .navbar {
-      background-color: rgba(38, 97, 80, 0.95);
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: -1;
+    }
+    nav {
+      background: linear-gradient(135deg, #266150, #388e3c);
       padding: 15px 30px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s;
+    nav h2 { color: #fff; margin: 0; font-size: 1.5em; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+    nav ul li { display: inline; }
+    nav ul li a {
+      color: #fff; text-decoration: none; font-weight: bold; transition: color 0.3s;
     }
-
-    .navbar a:hover {
-      color: #f0e68c;
-    }
-
-    .container {
-      width: 380px;
-      background-color: rgba(255, 255, 255, 0.92);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    nav ul li a:hover { color: #ffd700; }
+    header {
       text-align: center;
-      position: relative;
-      top: 120px;
-      margin: auto;
+      padding: 80px 20px;
+      background: url('https://img.freepik.com/free-photo/green-vegetables-background_1150-38014.jpg') no-repeat center center/cover;
+      color: #fff;
+      border-bottom: 6px solid #266150;
     }
-
-    h2 {
-      margin-bottom: 20px;
-      color: #266150;
-      font-size: 2em;
+    header h1 { font-size: 3em; margin: 0; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      text-align: center;
     }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
+    .container h2 { color: #266150; margin-bottom: 20px; }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    input {
       padding: 12px;
-      margin: 12px 0;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      border: 1px solid #bbb;
-      box-sizing: border-box;
-      font-size: 15px;
+      font-size: 1em;
     }
-
     button {
-      width: 100%;
       padding: 12px;
-      margin-top: 15px;
       border: none;
       border-radius: 8px;
-      background-color: #266150;
-      color: white;
-      font-size: 16px;
+      background: linear-gradient(135deg, #266150, #388e3c);
+      color: #fff;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background 0.3s ease;
     }
-
-    button:hover {
-      background-color: #4F4846;
-    }
-
-    .extra-links {
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-    .extra-links a {
-      color: #266150;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .extra-links a:hover {
-      text-decoration: underline;
-    }
+    button:hover { background: linear-gradient(135deg, #4caf50, #388e3c); }
+    .links { margin-top: 20px; }
+    .links a { color: #266150; text-decoration: none; font-weight: bold; }
+    .links a:hover { color: #4caf50; }
+    .flash-message { margin-top: 15px; font-weight: bold; }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <h2>Health Tips</h2>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('details') }}">Details</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <a href="{{ url_for('home') }}">Home</a>
-    <a href="{{ url_for('about') }}">About</a>
-    <a href="{{ url_for('contact') }}">Contact</a>
-  </div>
+  <!-- Header -->
+  <header>
+    <h1>Welcome to Health Tips</h1>
+    <p>Your partner for a healthier tomorrow</p>
+  </header>
 
   <!-- Login Form -->
   <div class="container">
-    <h2>Healthy Tips Login</h2>
-    
-    <form method="POST" action="{{ url_for('login') }}">
-      <input type="text" id="username" name="username" placeholder="Enter Username" required>
-      <input type="password" id="password" name="password" placeholder="Enter Password" required>
-      <button type="submit"action="{{ url_for('about') }}>Login</button>
+    <h2>Login</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            {% if category == 'success' %}
+              <div class="flash-message" style="color: green;">{{ message }}</div>
+            {% else %}
+              <div class="flash-message" style="color: red;">{{ message }}</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('login') }}" method="post">
+      <input type="text" name="username" placeholder="Enter username" required>
+      <input type="password" name="password" placeholder="Enter password" required>
+      <button type="submit">Login</button>
     </form>
-    <div class="extra-links">
-      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+
+    <div class="links">
+      <p>Don’t have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
     </div>
   </div>
-
 </body>
 </html>

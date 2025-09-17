@@ -15,26 +15,24 @@
     .links { text-align: center; margin-top: 14px; }
     .links a { color: #266150; text-decoration: none; font-weight: bold; }
   </style>
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('about') }}">About</a>
-      <a href="{{ url_for('contact') }}">Contact</a>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </div>
+
+  <div class="container">
+    <h2>Create Account</h2>
+    <form method="POST" action="{{ url_for('signup') }}">
+      <input type="text" name="username" placeholder="Enter Username" required>
+      <input type="password" name="password" placeholder="Enter Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="links">
+      <a href="{{ url_for('home') }}">Already have an account? Login</a>
     </div>
-
-    <div class="container">
-      <h2>Create Account</h2>
-      <form method="POST" action="{{ url_for('signup') }}">
-        <input type="text" name="username" placeholder="Enter Username" required>
-        <input type="password" name="password" placeholder="Enter Password" required>
-        <button type="submit">Sign Up</button>
-      </form>
-      <div class="links">
-        <a href="{{ url_for('login') }}">Already have an account? Login</a>
-      </div>
-    </div>
-  </body>
-  </html>
-
-
+  </div>
+</body>
+</html>
