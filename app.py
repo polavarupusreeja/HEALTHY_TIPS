@@ -6,7 +6,7 @@ from pymongo import MongoClient
 app = Flask(__name__)
 app.secret_key = "secret123"
 # MongoDB connection
-client = MongoClient("mongodb://localhost:27017/") 
+client = MongoClient("mongodb+srv://polavarupusreeja_db_user:TGHoec7zV4rIyDX3@cluster0.l9laafj.mongodb.net/") 
 db = client["Health"]  
 login_collection = db["Login_form"]      
 contact_collection = db["Contact_form"]  

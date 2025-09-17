@@ -119,7 +119,7 @@
     <form method="POST" action="{{ url_for('login') }}">
       <input type="text" id="username" name="username" placeholder="Enter Username" required>
       <input type="password" id="password" name="password" placeholder="Enter Password" required>
-      <button type="submit">Login</button>
+      <button type="submit"action="{{ url_for('about') }}>Login</button>
     </form>
     <div class="extra-links">
       <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
